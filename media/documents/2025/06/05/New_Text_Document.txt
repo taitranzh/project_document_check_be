@@ -1,0 +1,15 @@
+TKHT: 200k
+
+
+phần mềm qli khách sạn trên my SQL hay mongodP: 250k
+
+
+quản lí skien ở lập trình win: 200k
+18. Quản lý sự kiện
+Mô tả hệ thống: Xây dựng hệ thống quản lý các sự kiện như hội nghị, hội thảo, buổi lễ.
+Yêu cầu:
+Quản lý thông tin sự kiện (tên sự kiện, ngày giờ tổ chức, địa điểm, mô tả).
+Quản lý đăng ký tham gia sự kiện của khách mời.
+Cập nhật số lượng khách tham gia.
+Tìm kiếm sự kiện theo tên hoặc ngày.
+Lập báo cáo thống kê số lượng tham gia của mỗi sự kiện.
