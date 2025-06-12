@@ -43,6 +43,7 @@ class DocumentSerializer(serializers.ModelSerializer):
     )
 
     plagiarism_percentage = serializers.SerializerMethodField()
+    plagiarism_check_id = serializers.SerializerMethodField()
 
     class Meta:
         model = Document
@@ -62,6 +63,7 @@ class DocumentSerializer(serializers.ModelSerializer):
             'content',
             'doc_length',
             'uploaded_at',
+            'plagiarism_check_id',
             'plagiarism_percentage',  # thêm field này
         ]
         read_only_fields = ['original_filename',
@@ -71,6 +73,12 @@ class DocumentSerializer(serializers.ModelSerializer):
         latest_check = obj.checks.order_by('-checked_at').first()
         if latest_check:
             return latest_check.plagiarism_percentage
+        return None
+    
+    def get_plagiarism_check_id(self, obj):
+        latest_check = obj.checks.order_by('-checked_at').first()
+        if latest_check:
+            return latest_check.id
         return None
 
     def create(self, validated_data):

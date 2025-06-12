@@ -108,7 +108,6 @@ class PlagiarismCheckAPIView(APIView):
                     doc_length=len(text),
                     original_filename=file.name,
                     file_extension=file.name.split('.')[-1],
-                    
                 )
 
                 index_document(doc)
