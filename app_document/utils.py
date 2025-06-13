@@ -44,23 +44,7 @@ def _extract_pdf(uploaded_file: UploadedFile) -> str:
             tmp.write(chunk)
         tmp_path = tmp.name
 
-    # def read_pdf(file_path):
-    #     with open(file_path, 'rb') as f:
-    #         reader = PyPDF2.PdfReader(f)
-    #         for page in reader.pages:
-    #             text += page.extract_text()
-
-    # def read_pdf_plumber(file_path):
-    #     with pdfplumber.open(file_path) as pdf:
-    #         for page in pdf.pages:
-    #             text += page.extract_text()
-
-    #     with tempfile.NamedTemporaryFile(delete=False, suffix=f".{ext}") as tmp:
-    #         tmp.write(file.read())
-
-    #         output = io.StringIO()
-    #         extract_text_to_fp(file_obj, output)
-    #         return output.getvalue()
+   
     text = ""
     try:
         reader = PdfReader(tmp_path)
@@ -113,7 +97,7 @@ def calculate_similarity(text1, text2):
     return round(ratio * 100, 2)  # % trùng lặp
 
 
-def extract_matching_blocks(text1, text2, threshold=20):
+def extract_matching_blocks(text1, text2, threshold=10):
     matcher = SequenceMatcher(None, text1, text2)
     matches = []
     for block in matcher.get_matching_blocks():
